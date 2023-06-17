@@ -6,7 +6,7 @@
 	$: ({ studioInfo, dressInfo, makeUpInfo, consultingInfo, consultingDate, weddingDate } = data);
 </script>
 
-<div>
+<div class="price">
 	{formatPrice(totalPrice)}
 </div>
 <dl>
@@ -19,6 +19,7 @@
 		<dd>{weddingDate}</dd>
 	</div>
 </dl>
+{#if studioInfo}
 <dl>
 	<div>
 		<dt>스튜디오</dt>
@@ -33,11 +34,19 @@
 		<dd>{studioInfo.comment}</dd>
 	</div>
 </dl>
+{/if}
+{#if dressInfo}
 <dl>
+	{#each dressInfo.names as name, i}
 	<div>
+		{#if dressInfo.names.length > 2}
+		<dt>드레스{i+1}</dt>
+		{:else}
 		<dt>드레스</dt>
-		<dd>{dressInfo.name}</dd>
+		{/if}
+		<dd>{name}</dd>
 	</div>
+	{/each}
 	<div>
 		<dt>비용</dt>
 		<dd>{formatPrice(dressInfo.price)}</dd>
@@ -47,6 +56,8 @@
 		<dd>{dressInfo.comment}</dd>
 	</div>
 </dl>
+{/if}
+{#if makeUpInfo}
 <dl>
 	<div>
 		<dt>메이크업</dt>
@@ -61,6 +72,8 @@
 		<dd>{makeUpInfo.comment}</dd>
 	</div>
 </dl>
+{/if}
+{#if consultingInfo}
 <dl>
 	<div>
 		<dt>플래너</dt>
@@ -75,8 +88,16 @@
 		<dd>{consultingInfo.comment}</dd>
 	</div>
 </dl>
+{/if}
 
 <style>
+	.price{
+		font-size: 32px;
+    	font-weight: 700;
+		text-align: end;
+		color: var(--main-text-color);
+	}
+
 	dl > div{
 		display: flex;
 		justify-content: space-between;
