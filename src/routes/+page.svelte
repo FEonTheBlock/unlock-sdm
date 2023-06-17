@@ -2,10 +2,11 @@
 	export let data;
 	let { sdmInfos } = data;
 	$: ({ sdmInfos } = data);
+	import Card from '../components/Card.svelte';
 </script>
 
 <ul>
 	{#each sdmInfos as sdmInfo}
-		<li>{sdmInfo.dress_price}</li>
+		<li><Card {sdmInfo} /></li>
 	{/each}
 </ul>
