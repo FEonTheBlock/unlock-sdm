@@ -1,0 +1,5 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+:global(*) {
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
