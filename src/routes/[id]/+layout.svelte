@@ -27,6 +27,7 @@
   position: relative;
   top: -12px;
   margin: 0 auto;
+  padding: 1rem;
   background: white;
   filter:drop-shadow(0px 0px 1px gray);
 }
@@ -38,6 +39,7 @@
 	height: 32px;
   position: absolute;
   bottom: -15px;
+  left: 0px;
   background: 
     linear-gradient(-45deg, transparent 16px, white 0), 
 		linear-gradient(45deg, transparent 16px, white  0);
