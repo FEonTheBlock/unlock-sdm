@@ -23,7 +23,6 @@
 
 .receipt {
   width: 85%;
-  height: 92vh;
   position: relative;
   top: -12px;
   margin: 0 auto;

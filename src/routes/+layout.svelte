@@ -13,6 +13,8 @@
 		max-width: 375px;
 		height: 100vh;
 		margin: 0 auto;
+		padding-bottom: 1rem;
 		background-color: var(--main-bg-color);
+		overflow: auto;
 	}
 </style>

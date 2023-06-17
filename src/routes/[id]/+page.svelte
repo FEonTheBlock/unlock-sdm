@@ -1,5 +1,5 @@
 <script>
-	import { formatPrice } from '$utils/formatUtils';
+	import { formatDateToYM, formatPrice } from '$utils/formatUtils';
 
 	export let data;
 	let { studioInfo, dressInfo, makeUpInfo, consultingInfo, totalPrice, consultingDate, weddingDate } = data;
@@ -12,18 +12,18 @@
 <dl>
 	<div>
 		<dt>상담/견적일</dt>
-		<dd>{consultingDate}</dd>
+		<dd>{formatDateToYM(new Date(consultingDate))}</dd>
 	</div>
 	<div>
 		<dt>본식 날짜</dt>
-		<dd>{weddingDate}</dd>
+		<dd>{formatDateToYM(new Date(weddingDate))}</dd>
 	</div>
 </dl>
 {#if studioInfo}
 <dl>
 	<div>
-		<dt>스튜디오</dt>
-		<dd>{studioInfo.name}</dd>
+		<dt class="studio">스튜디오</dt>
+		<dd class="name">{studioInfo.name}</dd>
 	</div>
 	<div>
 		<dt>비용</dt>
@@ -39,12 +39,12 @@
 <dl>
 	{#each dressInfo.names as name, i}
 	<div>
-		{#if dressInfo.names.length > 2}
-		<dt>드레스{i+1}</dt>
+		{#if dressInfo.names.length > 1}
+		<dt class="dress">드레스{i+1}</dt>
 		{:else}
-		<dt>드레스</dt>
+		<dt class="dress">드레스</dt>
 		{/if}
-		<dd>{name}</dd>
+		<dd class="name">{name}</dd>
 	</div>
 	{/each}
 	<div>
@@ -60,8 +60,8 @@
 {#if makeUpInfo}
 <dl>
 	<div>
-		<dt>메이크업</dt>
-		<dd>{makeUpInfo.name}</dd>
+		<dt class="makeup">메이크업</dt>
+		<dd class="name">{makeUpInfo.name}</dd>
 	</div>
 	<div>
 		<dt>비용</dt>
@@ -76,8 +76,8 @@
 {#if consultingInfo}
 <dl>
 	<div>
-		<dt>플래너</dt>
-		<dd>{consultingInfo.name}</dd>
+		<dt class="planner">플래너</dt>
+		<dd class="name">{consultingInfo.name}</dd>
 	</div>
 	<div>
 		<dt>비용</dt>
@@ -98,6 +98,13 @@
 		color: var(--main-text-color);
 	}
 
+	dl{
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding-top: 0.5rem;
+	}
+
 	dl > div{
 		display: flex;
 		justify-content: space-between;
@@ -106,13 +113,30 @@
 	dl:not(:last-child)::after{
 		display: block;
 		content: "";
-		width: 90%;
+		width: 95%;
 		height: 1px;
 		margin: 0 auto;
+		padding-top: 0.5rem;
 		border-bottom: 1px dashed var(--light-gray);
 	}
 
-	dt{
+	dt, .name{
 		font-weight: bold;
+	}
+
+	.studio{
+		color: var(--primary-green);
+	}
+
+	.dress{
+		color: var(--primary-blue);
+	}
+
+	.makeup{
+		color: var(--primary-purple);
+	}
+
+	.planner{
+		color: var(--primary-yellow);
 	}
 </style>
