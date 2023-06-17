@@ -1,11 +1,11 @@
 <script>
 	export let data;
-	let { sdmPrices } = data;
-	$: ({ sdmPrices } = data);
+	let { sdmInfos } = data;
+	$: ({ sdmInfos } = data);
 </script>
 
 <ul>
-	{#each sdmPrices as sdmPrice}
-		<li>{sdmPrice.consulting_name}</li>
+	{#each sdmInfos as sdmInfo}
+		<li>{sdmInfo.dress_price}</li>
 	{/each}
 </ul>
