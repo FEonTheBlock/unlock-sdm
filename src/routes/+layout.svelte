@@ -9,10 +9,10 @@
 	@import '$styles/font';
 	@import '$styles/color';
 
-	main {
+	.layout {
 		max-width: 375px;
 		height: 100vh;
 		margin: 0 auto;
-		background-color: beige;
+		background-color: var(--main-bg-color);
 	}
 </style>
