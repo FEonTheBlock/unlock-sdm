@@ -4,11 +4,22 @@
 	$: ({ sdmInfos } = data);
 	import Card from '../components/Card.svelte';
 	import Checkbox from '$components/Checkbox.svelte';
+
+	const checkboxInfos = [
+		{ name: '스튜디오', themeColor: 'green', id: 'checkbox1' },
+		{ name: '드레스', themeColor: 'blue', id: 'checkbox2' },
+		{ name: '메이크업', themeColor: 'purple', id: 'checkbox3' }
+	];
 </script>
 
-<Checkbox isChecked={true} filterName={'스튜디오'} themeColor={'green'} />
-<Checkbox isChecked={true} filterName={'드레스'} themeColor={'blue'} />
-<Checkbox isChecked={true} filterName={'메이크업'} themeColor={'purple'} />
+{#each checkboxInfos as checkbox}
+	<Checkbox
+		isChecked={true}
+		filterName={checkbox.name}
+		themeColor={checkbox.themeColor}
+		id={checkbox.id}
+	/>
+{/each}
 
 <ul>
 	{#each sdmInfos as sdmInfo}

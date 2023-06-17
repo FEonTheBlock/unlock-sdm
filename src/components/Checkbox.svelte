@@ -1,12 +1,13 @@
 <script lang="ts">
 	export let isChecked: boolean = false;
-	export let filterName: string = 'eeee';
-	export let themeColor: string = 'blue';
+	export let filterName: string = '스튜디오';
+	export let themeColor: string = 'green';
+	export let id: string = 'checkbox1';
 </script>
 
 <span>
-	<input type="checkbox" id="box" checked={isChecked} />
-	<label for="box" style="--theme-color: var(--primary-{themeColor})">
+	<input type="checkbox" {id} checked={isChecked} />
+	<label for={id} style="--theme-color: var(--primary-{themeColor})">
 		{filterName}
 		<div />
 	</label>
